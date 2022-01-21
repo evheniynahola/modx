@@ -1,0 +1,13 @@
+<div class="col-12">
+    {'!pdoCrumbs' | snippet : [
+    'tplCurrent' => '@INLINE <li itemprop="itemListElement" itemscope
+itemtype="http://schema.org/ListItem"><span itemprop="name">{{+menutitle}}</span><meta itemprop="position" content="{$idx}" /></li>',
+    'tplWrapper' => '@INLINE <ul itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumbs">{{+output}}</ul>',
+    'tpl' => '@INLINE <li><a itemprop="item" href="{{+link}}"><span itemprop="name">{{+menutitle}}</span></a><meta itemprop="position" content="{$idx}" /></li>',
+    'tplHome' => '@INLINE <li itemprop="itemListElement" itemscope
+itemtype="http://schema.org/ListItem"><a itemprop="item" href="{$_modx->config.base_url}"><span itemprop="name">{{+menutitle}}</span></a><meta itemprop="position" content="{$idx}" /></li>',
+    'showHome' => 1,
+    'exclude' => '10,21',
+    'showHidden' => 1
+    ]}
+</div>

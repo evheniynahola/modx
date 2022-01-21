@@ -1,0 +1,28 @@
+<div class="col-xl-9 col-lg-8">
+    {set $idx = 'BabelTranslation' | snippet : [
+      		        'contextKey' => $_modx->context.key,
+      		        'resourceId' => 13
+      		    ]}
+      {set $category = 'rel="category"'}
+    {'pdoMenu' | snippet: [
+        'parents' => $idx,
+        'showHidden' => 1,
+        'tplOuter' => '@INLINE <ul class="category-list">
+                     {if $_modx->resource.id === 13 || $_modx->resource.id === 24}
+                         <li class="active"><a href="{$_modx->makeUrl('~$idx~')}">[[%all_news? &topic=translate &namespace=babel]]</a></li>
+                     {else}
+                         <li><a href="{$_modx->makeUrl('~$idx~')}">[[%all_news? &topic=translate &namespace=babel]]</a></li>
+                     {/if}
+                     [[+wrapper]]
+                </ul>',
+        'tpl' => ' @INLINE <li><a href="[[+link]]" [[+attributes]]>[[+menutitle]]</a></li>',
+        'tplHere' => '@INLINE <li class="active"><a href="[[+link]]" [[+attributes]]>[[+menutitle]]</a></li>',
+        'level' => 2,
+        'tplParentRow' => '@INLINE <li class="category-list_dropdown"><a href="[[+link]]" [[+attributes]]>[[+menutitle]]</a><svg class="main-menu-arrow" x="0px" y="0px" viewBox="0 0 85.8 39.1" xml:space="preserve">
+   					<polygon points="83.6,2 75.7,2 42.6,31.1 9.5,2 1.8,2.1 42.6,38.1 42.6,38.1 42.6,38.1 "></polygon>
+   					</svg>[[+wrapper]]</li>',
+        'tplParentRowHere' => 'categoryFolderHere',
+   	'tplInner' => '@INLINE <ul class="category-list">[[+wrapper]]</ul>',
+   	'tplCategoryFolder' => '@INLINE <li><a href="[[+link]]" [[+attributes]]>[[+menutitle]]</a></li>',
+    ]}
+</div>
